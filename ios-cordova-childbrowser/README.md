@@ -16,7 +16,7 @@ Process to run childbrowser plugin in Cordova:
 * Add the ChildBrowser.js file in your index.html and add following code to test the plugin
 
 <pre>
-<script type="text/javascript">
+&lt;script type="text/javascript"&gt;
 function openGoogle(){
 	var root = this;
 	cb = window.plugins.childBrowser;
@@ -27,8 +27,8 @@ function openGoogle(){
        alert("childbrowser is null");
 	}
 }
-</script>
-<button onclick="openGoogle">Open Google</button>
-<pre>
+&lt;/script&gt;
+&lt;button&gt; onclick="openGoogle">Open Google&lt;/button&gt;
+</pre>
 	
 This process will create a basic application in which browser is running. Once it is running properly you can customize it your requirements.

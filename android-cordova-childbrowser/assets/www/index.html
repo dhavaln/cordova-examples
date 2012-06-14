@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="lib/android/cordova-1.7.0.js"></script>
+        
+		<script type="text/javascript" charset="utf-8" src="lib/android/childbrowser.js"></script>
+    </head>
+    <body>
+        <div id="page1" data-role="page">
+            <div data-role="header" data-theme="b" data-position="fixed">
+                <h2>
+                    Childbrowser Test
+                </h2>
+            </div>
+            <div data-role="content">
+            	<a href="#" data-role="button" id="openGoogleWithAddress">Google (with address bar)</a>
+            	<a href="#" data-role="button" id="openGoogleWithoutAddress">Google (without address bar)</a>
+            </div>
+        </div>
+    </body>
+    
+    <script type="text/javascript">
+    	$("#openGoogleWithAddress").click(function(){
+    		window.plugins.childBrowser.showWebPage("http://www.google.com", { showLocationBar: true, showAddressBar: true });
+    	});
+    	
+    	$("#openGoogleWithoutAddress").click(function(){
+    		window.plugins.childBrowser.showWebPage("http://www.google.com", { showLocationBar: true, showAddressBar: false });
+    	});
+    </script>
+</html>​

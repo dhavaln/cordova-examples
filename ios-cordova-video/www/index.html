@@ -12,7 +12,11 @@
 	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
 	-->
 	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-	<script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
+        <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
+        
+        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="jquery.mobile-1.0.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
     <script type="text/javascript">
 
 
@@ -52,15 +56,15 @@
     
     </script>
   </head>
-  <body onload="onBodyLoad()">
-	<h1>Hey, it's Cordova!</h1>
-	<p>Don't know how to get started? Check out our <em><a target="_blank" href="http://docs.phonegap.com/en/edge/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS">Getting Started Guide</a></em>
-	<br />
-	<ol>
-		<li>Check your console log for any white-list rejection errors.</li>
-		<li>Add your allowed <strong>hosts</strong> in Cordova.plist/ExternalHosts (wildcards OK, don't enter the URL scheme)</li>
-	</ol>
-      
-      <iframe src="http://player.vimeo.com/video/6353874?byline=0" width="500" height="750" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/6353874">jQTouch Preview</a> from <a href="http://vimeo.com/davidkaneda">David Kaneda</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+  <body onload="">
+      <div data-role="page" id="page1">
+          <div data-role="header">
+              <h3>Vimeo Test</h3>
+              </div>
+          <div data-role="content">
+                            
+              <iframe src="http://player.vimeo.com/video/36579366?byline=0" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/36579366">Bret Victor - Inventing on Principle</a> from <a href="http://vimeo.com/cusec">CUSEC</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+          </div>
+      </div>
   </body>
 </html>

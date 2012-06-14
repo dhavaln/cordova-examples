@@ -27,6 +27,6 @@ I have changed the following function in MainViewController.m file to do the dir
 	        }
 	    }
 
-	    BOOL result = [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+	    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
 	}
 </pre>

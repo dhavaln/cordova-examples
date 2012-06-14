@@ -151,7 +151,7 @@
         }
     }
     
-    BOOL result = [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
 }
  
 @end

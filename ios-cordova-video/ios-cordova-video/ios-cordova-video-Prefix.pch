@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ios-cordova-video' target in the 'ios-cordova-video' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

@@ -122,6 +122,8 @@
         return NO; 
     }
     
+    NSLog(@"load url");
+    
 	// calls into javascript global function 'handleOpenURL'
     NSString* jsString = [NSString stringWithFormat:@"handleOpenURL(\"%@\");", url];
     [self.viewController.webView stringByEvaluatingJavaScriptFromString:jsString];

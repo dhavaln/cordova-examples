@@ -130,11 +130,30 @@
 {
 	return [super webView:theWebView didFailLoadWithError:error];
 }
+*/
 
 - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+    NSURL *url = [request URL];
+    NSString *host = [request.URL host];
+    
+    if(host != NULL || host != nil){
+        if ([host rangeOfString:@"vimeo.co"].location != NSNotFound) {
+            // NSLog(@"string contains google.com");
+            //[[UIApplication sharedApplication] openURL:[request URL]];
+            return YES;
+        }else{
+            if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {
+                [[UIApplication sharedApplication] openURL:url];
+                return NO;
+            }
+            else {
+                return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];
+            }
+        }
+    }
+    
+    BOOL result = [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
 }
-*/
-
+ 
 @end

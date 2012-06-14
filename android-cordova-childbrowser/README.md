@@ -3,7 +3,7 @@ android-cordova-childbrowser
 
 Customized the Childbrowser behavior to add showAddressBar option to turn address bar on/off as below.
 
-Open childbrowser without address bar
+Open childbrowser with address bar
 
 <pre>
 window.plugins.childBrowser.showWebPage("http://www.google.com", { showLocationBar: true, showAddressBar: true });

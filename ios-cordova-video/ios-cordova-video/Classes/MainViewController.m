@@ -139,8 +139,6 @@
     
     if(host != NULL || host != nil){
         if ([host rangeOfString:@"vimeo.co"].location != NSNotFound) {
-            // NSLog(@"string contains google.com");
-            //[[UIApplication sharedApplication] openURL:[request URL]];
             return YES;
         }else{
             if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {

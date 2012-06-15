@@ -39,13 +39,13 @@ Update
 Following change in the ChildBrowser.js triggers events properly.
 
 <pre>
-	 if (cordovaRef && cordovaRef.addConstructor) {
+if (cordovaRef && cordovaRef.addConstructor) {
 	 cordovaRef.addConstructor(ChildBrowser.install);
 	
 	 // Make the ChildBrowser global
 	 window.ChildBrowser = ChildBrowser;
-	 } else {
+} else {
 	 console.log("ChildBrowser Cordova Plugin could not be installed.");
 	 return null;
-	 }
+}
 </pre>

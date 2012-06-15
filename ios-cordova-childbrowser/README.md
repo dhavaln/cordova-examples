@@ -32,3 +32,20 @@ function openGoogle(){
 </pre>
 	
 This process will create a basic application in which browser is running. Once it is running properly you can customize it your requirements.
+
+Update
+------
+
+Following change in the ChildBrowser.js triggers events properly.
+
+<pre>
+	 if (cordovaRef && cordovaRef.addConstructor) {
+	 cordovaRef.addConstructor(ChildBrowser.install);
+	
+	 // Make the ChildBrowser global
+	 window.ChildBrowser = ChildBrowser;
+	 } else {
+	 console.log("ChildBrowser Cordova Plugin could not be installed.");
+	 return null;
+	 }
+</pre>

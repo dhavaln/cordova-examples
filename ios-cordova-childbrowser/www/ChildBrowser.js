@@ -78,6 +78,7 @@
  
  if (cordovaRef && cordovaRef.addConstructor) {
  cordovaRef.addConstructor(ChildBrowser.install);
+ window.ChildBrowser = ChildBrowser;
  } else {
  console.log("ChildBrowser Cordova Plugin could not be installed.");
  return null;

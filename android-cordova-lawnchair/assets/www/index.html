@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://brian.io/lawnchair/downloads/lawnchair-0.6.1.js"></script>
+</head>
+	<div id="data"></div>
+<body>
+<script type="text/javascript">
+    var store = new Lawnchair({
+    	adapter: "dom",
+        name: "testing"
+    }, function(store) {
+    });
+    
+    store.exists('dhaval', function(available){
+		var preStr = "";
+		
+		if(available){
+			preStr = "key is already available, ";
+		}else{
+			preStr = "key not available, ";
+			// create an object
+	        var me = {
+	            key: 'dhaval'
+	        };
+
+	        // save it
+	        store.save(me);
+		}
+		
+		// access it later... even after app restart!
+        store.get('dhaval', function(me) {
+            $("#data").html(preStr + JSON.stringify(me));
+        });
+	});
+</script>
+</body>
+</html>

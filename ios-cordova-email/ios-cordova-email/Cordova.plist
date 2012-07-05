@@ -21,15 +21,11 @@
 	<key>OpenAllWhitelistURLsInWebView</key>
 	<false/>
 	<key>ExternalHosts</key>
-	<array>
-		<string>*</string>
-	</array>
+	<array/>
 	<key>Plugins</key>
 	<dict>
-		<key>Screenshot</key>
-		<string>Screenshot</string>
-		<key>ChildBrowserCommand</key>
-		<string>ChildBrowserCommand</string>
+		<key>EmailComposer</key>
+		<string>EmailComposer</string>
 		<key>Compass</key>
 		<string>CDVLocation</string>
 		<key>Accelerometer</key>

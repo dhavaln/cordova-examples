@@ -18,12 +18,14 @@
  */
 
 //
-//  MainViewController.h
-//  ios-cordova-childbrowser
+//  AppDelegate.h
+//  ios-cordova-email
 //
-//  Created by Dhaval Nagar on 14/06/12.
+//  Created by Dhaval Nagar on 05/07/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
+
+#import <UIKit/UIKit.h>
 
 #ifdef CORDOVA_FRAMEWORK
     #import <Cordova/CDVViewController.h>
@@ -31,12 +33,18 @@
     #import "CDVViewController.h"
 #endif
 
-@interface MainViewController : CDVViewController{
-    int deviceDirection;
+
+@interface AppDelegate : NSObject < UIApplicationDelegate > {
+
 }
 
-@property int deviceDirection;
+// invoke string is passed to your app on launch, this is only valid if you 
+// edit ios-cordova-email-Info.plist to add a protocol
+// a simple tutorial can be found here : 
+// http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
 
-- (void) setDevideDirection: (int) orientation;
+@property (nonatomic, retain) IBOutlet UIWindow* window;
+@property (nonatomic, retain) IBOutlet CDVViewController* viewController;
 
 @end
+

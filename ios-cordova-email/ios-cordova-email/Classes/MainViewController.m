@@ -19,17 +19,15 @@
 
 //
 //  MainViewController.h
-//  ios-cordova-childbrowser
+//  ios-cordova-email
 //
-//  Created by Dhaval Nagar on 14/06/12.
+//  Created by Dhaval Nagar on 05/07/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
 #import "MainViewController.h"
 
 @implementation MainViewController
-
-@synthesize deviceDirection;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,25 +64,7 @@
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    
-    //return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-    NSLog(@"current orientation %d", deviceDirection);
-    
-    if(deviceDirection == 1){
-        // portrait
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    }else if(deviceDirection ==2){
-        // landscape right
-        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-    }else if(deviceDirection ==3){
-        // portrait upside down
-        return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
-    }else if(deviceDirection ==4){
-        // langscape left
-        return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-    }else{
-        return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation]; 
-    }
+    return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 }
 
 /* Comment out the block below to over-ride */
@@ -157,11 +137,4 @@
 }
 */
 
-- (void) setDevideDirection:(int)mode
-{
-    NSLog(@"set orientation to %d", mode);
-    self.deviceDirection = mode;
-    
-    
-}
 @end

@@ -14,6 +14,7 @@
 	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
 	
         <script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
+        <script type="text/javascript" src="Screenshot.js"></script>
         <script src="ChildBrowser.js"></script>
     <script type="text/javascript">
 
@@ -50,6 +51,8 @@
 	{
 		// do your thing!
 		navigator.notification.alert("Cordova is working");
+        var id = cordova.createUUID();
+        alert(id);
         window.ChildBrowser = ChildBrowser;
         //Cordova.addConstructor(ChildBrowser.install);
 	}
@@ -79,6 +82,52 @@
         function onOpenExternal() {
             console.log("onOpenExternal!");
         }
+        
+        function takeScreenshot(){
+            if(window.plugins.screenshot){
+            window.plugins.screenshot.saveScreenshot();
+            }else{
+                alert("plugin not found");
+            }
+        }
+        
+        function openPdf(){
+            //cb = window.plugins.childBrowser;
+            //cb.showWebPage("file:///www/documents/aaa.pdf");
+            /*
+            cb = window.plugins.childBrowser; 
+            var strPath = window.location.href; 
+            var path = strPath.substr(0,strPath.lastIndexOf('/documents/aaa.pdf')); 
+            alert(path);
+            cb.showWebPage(encodeURI(path)); 
+            */
+            //loading a web page in ChildBrowser 
+            loadChildBrowser(true, "/Documents/aaa.pdf");
+            //loadChildBrowser(false, "http://facebook.com");
+        }
+        
+        function loadChildBrowser(isInternal, URL) { 
+            cb = window.plugins.childBrowser;
+            
+            if(isInternal){ 
+                var strPath = window.location.href; 
+                var path = strPath.substr(0,strPath.lastIndexOf('/')) + URL; 
+                console.log(path);
+                //cb.showWebPage(encodeURI(path)); 
+                Cordova.exec("ChildBrowserCommand.showWebPage", encodeURI(path) );
+            } 
+            else{ 
+                cb.showWebPage(URL); 
+            } 
+        } 
+        
+        function bt1(){
+            if(window.plugins.screenshot){
+                window.plugins.screenshot.setAllowed([]);
+            }else{
+                alert("plugin not found");
+            }
+        }
     </script>
   </head>
   <body onload="onBodyLoad()">
@@ -92,5 +141,11 @@
 	</ol>
       
       <button onclick="openGoogle()">Google</button>
+      <button onclick="takeScreenshot()">Take screenshot</button>
+      <button onclick="openPdf()">Open PDF</button>
+      <button onclick="bt1()">Protrait</button>
+      <button onclick="bt2()">Protrait Upside-Down</button>
+      <button onclick="bt3()">Landscape Left</button>
+      <button onclick="bt4()">Landscape Right</button>
   </body>
 </html>

@@ -16,27 +16,20 @@
  specific language governing permissions and limitations
  under the License.
  */
-
 //
-//  MainViewController.h
-//  ios-cordova-childbrowser
+//  main.m
+//  ios-cordova-email
 //
-//  Created by Dhaval Nagar on 14/06/12.
+//  Created by Dhaval Nagar on 05/07/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
-#ifdef CORDOVA_FRAMEWORK
-    #import <Cordova/CDVViewController.h>
-#else
-    #import "CDVViewController.h"
-#endif
+#import <UIKit/UIKit.h>
 
-@interface MainViewController : CDVViewController{
-    int deviceDirection;
+int main(int argc, char *argv[]) {
+    
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    int retVal = UIApplicationMain(argc, argv, nil, @"AppDelegate");
+    [pool release];
+    return retVal;
 }
-
-@property int deviceDirection;
-
-- (void) setDevideDirection: (int) orientation;
-
-@end

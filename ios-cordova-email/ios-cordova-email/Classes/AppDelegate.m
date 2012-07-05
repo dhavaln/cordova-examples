@@ -19,9 +19,9 @@
 
 //
 //  AppDelegate.m
-//  ios-cordova-childbrowser
+//  ios-cordova-email
 //
-//  Created by Dhaval Nagar on 14/06/12.
+//  Created by Dhaval Nagar on 05/07/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
@@ -66,7 +66,7 @@
     
     if (url && [url isKindOfClass:[NSURL class]]) {
         invokeString = [url absoluteString];
-		NSLog(@"ios-cordova-childbrowser launchOptions = %@", url);
+		NSLog(@"ios-cordova-email launchOptions = %@", url);
     }    
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -108,10 +108,6 @@
         [[UIApplication sharedApplication] setStatusBarOrientation:newOrient];
     }
     
-    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
-    [NSURLCache setSharedURLCache:sharedCache];
-    [sharedCache release];
-    
     [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
     
@@ -119,7 +115,7 @@
 }
 
 // this happens while we are running ( in the background, or from within our own app )
-// only valid if ios-cordova-childbrowser-Info.plist specifies a protocol to handle
+// only valid if ios-cordova-email-Info.plist specifies a protocol to handle
 - (BOOL) application:(UIApplication*)application handleOpenURL:(NSURL*)url 
 {
     if (!url) { 
@@ -141,12 +137,4 @@
 	[super dealloc];
 }
 
-- (void)setOrientation:(NSMutableArray *)arguments
-{
-    NSLog(@"setting orientation");
-    MainViewController *vc = self.viewController;
-    [vc setDevideDirection:2];
-    //self.viewController.supportedOrientations = arguments;
-    //self.viewController.supportedOrientations = arguments;
-}
 @end

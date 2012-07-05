@@ -19,9 +19,9 @@
 
 //
 //  MainViewController.h
-//  ios-cordova-childbrowser
+//  ios-cordova-email
 //
-//  Created by Dhaval Nagar on 14/06/12.
+//  Created by Dhaval Nagar on 05/07/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
@@ -31,12 +31,6 @@
     #import "CDVViewController.h"
 #endif
 
-@interface MainViewController : CDVViewController{
-    int deviceDirection;
-}
-
-@property int deviceDirection;
-
-- (void) setDevideDirection: (int) orientation;
+@interface MainViewController : CDVViewController
 
 @end

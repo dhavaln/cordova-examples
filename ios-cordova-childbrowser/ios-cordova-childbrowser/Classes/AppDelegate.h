@@ -46,5 +46,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow* window;
 @property (nonatomic, retain) IBOutlet CDVViewController* viewController;
 
+- (void)setOrientation:(NSMutableArray *)arguments;
+
 @end
 

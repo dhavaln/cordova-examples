@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+<script type="text/javascript" charset="utf-8"
+	src="lib/android/cordova-1.7.0.js"></script>
+<script type="text/javascript">
+	window.appRootDirName = "download_test";
+	document.addEventListener("deviceready", onDeviceReady, false);
+
+	function onDeviceReady() {
+		console.log("device is ready");
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	}
+
+	function fail() {
+		console.log("failed to get filesystem");
+	}
+
+	function gotFS(fileSystem) {
+		console.log("filesystem got");
+		window.fileSystem = fileSystem;
+		fileSystem.root.getDirectory(window.appRootDirName, {
+			create : true,
+			exclusive : false
+		}, dirReady, fail);
+	}
+
+	function dirReady(entry) {
+		window.appRootDir = entry;
+		console.log("application dir is ready");
+	}
+
+	downloadFile = function() {
+		var fileTransfer = new FileTransfer();
+
+		var url = "http://www.irs.gov/pub/irs-pdf/fw4.pdf";
+		var filePath = window.appRootDir.fullPath + "/test.pdf";
+
+		fileTransfer.download(url, filePath, function(entry) {
+			alert("download complete: " + entry.fullPath);
+		}, function(error) {
+			alert("download error" + error.source);
+		});
+	}
+</script>
+</head>
+<body>
+	<button onclick="downloadFile()">Download File</button>
+</body>
+
+<script type="text/javascript">
+	
+</script>
+</html>

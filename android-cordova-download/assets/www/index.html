@@ -6,6 +6,12 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 <script type="text/javascript" charset="utf-8"
 	src="lib/android/cordova-1.7.0.js"></script>
+	<script type="text/javascript" charset="utf-8"
+	src="lib/android/childbrowser.js"></script>
+	
+	<script type="text/javascript" charset="utf-8"
+	src="lib/android/pdfviewer.js"></script>
+	
 <script type="text/javascript">
 	window.appRootDirName = "download_test";
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -45,10 +51,26 @@
 			alert("download error" + error.source);
 		});
 	}
+	
+	downloadAndOpenFile = function() {
+		var fileTransfer = new FileTransfer();
+
+		var url = "http://www.irs.gov/pub/irs-pdf/fw4.pdf";
+		var filePath = window.appRootDir.fullPath + "/test.pdf";
+
+		fileTransfer.download(url, filePath, function(entry) {
+			alert("download complete: " + entry.fullPath);
+			
+			window.plugins.pdfviewer.showPdf(entry.fullPath);
+		}, function(error) {
+			alert("download error" + error.source);
+		});
+	}
 </script>
 </head>
 <body>
 	<button onclick="downloadFile()">Download File</button>
+	<button onclick="downloadAndOpenFile()">Download & Open File</button>
 </body>
 
 <script type="text/javascript">

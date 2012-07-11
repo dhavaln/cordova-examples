@@ -35,4 +35,7 @@
     <plugin name="Capture" value="org.apache.cordova.Capture"/>
     <plugin name="Battery" value="org.apache.cordova.BatteryListener"/>
     <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
+    
+    <plugin name="ChildBrowser" value="com.jumpbyte.mobile.plugin.ChildBrowser"/>
+    <plugin name="PdfViewer" value="com.jumpbyte.mobile.plugin.PdfViewer"/>
 </plugins>
